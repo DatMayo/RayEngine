@@ -1,4 +1,4 @@
-ï»¿using System;
+﻿using System;
 using System.IO;
 using System.Numerics;
 using RayEngine.Components;
@@ -10,8 +10,8 @@ namespace RayEngine;
 
 public static class Engine
 {
-    public static readonly float DEG2RAD = MathF.PI / 180.0f;
-    public static readonly  float RAD2DEG = 180.0f / MathF.PI;
+    public static readonly float Deg2Rad = MathF.PI / 180.0f;
+    public static readonly  float Rad2Deg = 180.0f / MathF.PI;
     public static readonly Uri ResourceUrl = new(AppContext.BaseDirectory + "resources");
     public static readonly bool IsResourceFolderValid = Directory.Exists(ResourceUrl.LocalPath);
 
@@ -96,7 +96,7 @@ public static class Engine
 
                 // Gets replaced by Objects.Cube
                 // var cube = new Cube(Vector3.Zero, new Vector3(2f, 2f, 2f), Color.DARKBLUE);
-                var enemyText = "Enemy: 100/100 HP";
+                // var enemyText = "Enemy: 100/100 HP";
                 rubberDuck.Draw();
                 // var rubberDuckScreenPosition = GetWorldToScreen(rubberDuck.transform.Translation, camera);
                 // rubberDuckScreenPosition.X -= (float) MeasureText(enemyText, 20) / 2;
@@ -124,7 +124,7 @@ public static class Engine
             #endregion
         }
 
-        UnloadModel(rubberDuck.Model);
+        UnloadModel(rubberDuck.GetModel());
         scene.Destroy();
         // UnloadTexture(rubberDuckTex);
         CloseWindow(); // Close window and OpenGL context
